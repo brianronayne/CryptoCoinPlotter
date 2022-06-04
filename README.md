@@ -6,3 +6,5 @@ Simple command line program to plot coin data for any coin currently tradeable o
 - Include ability to calculate various techinical indicators using price data and plot these. 
 - Create backtesting platform for possible trading strategies.
 - Further integration with Binance API to allow trades to be made automatically.
+- Include choice of various other popular exchanges etc. Coinbase.
+- Add functionality for various other securities e.g. stocks, commodities.
