@@ -31,7 +31,7 @@ class Binance():
 
         return pairs
 
-    def GetPairData(self, pair:str, interval:str="1h")
+    def GetPairData(self, pair:str, interval:str="1h"):
 
         '''
         Returns price data for a given pair on a given timeframe

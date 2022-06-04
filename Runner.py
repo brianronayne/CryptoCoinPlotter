@@ -9,7 +9,7 @@ def Main():
     exchange = Binance()
     print("Welcome to the coin data plotter! \n")
     print("What coin would you like to plot? \nEntries should be in the following format 'BTCUSDT', Where BTC is the base asset and USDT is the quote asset.")
-    tradeableCoins = exchange.getTradeablePairs()
+    tradeableCoins = exchange.GetTradeablePairs()
     coin = input()
     if coin not in tradeableCoins:
         print("The input provided was not recognised as a coin currently tradeable on Binance. The program will now exit.")

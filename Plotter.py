@@ -4,14 +4,16 @@ from Binance import Binance
 
 class Plotter:
     ''' 
-    Plots Candlestick Data
-
+    Class for controlling all plotting
     '''
 
     def __init__(self):
         pass
 
     def PlotPairData(self, df):
+        '''
+        Given a dataframe containing price data for a pair, will create a candlestick plot.
+        '''
 
         data = go.Candlestick(
             x = df['Time'],
@@ -25,11 +27,3 @@ class Plotter:
         fig.update_layout(title = df.name)
 
         fig.show()
-
-def Main():
-    BTCUSDT = Binance().GetPairData(pair = "BTCUSDT", interval = '1h')
-    BTCUSDT.name = "BTCUSDT"
-    Plotter().PlotPairData(df = BTCUSDT)
-
-if __name__ == "__main__":
-    Main()
