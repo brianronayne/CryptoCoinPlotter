@@ -15,7 +15,10 @@ class Binance():
             "candlestick": "/api/v3/klines"
         }
 
-    def getTradeablePairs(self, quoteCurrencies:list=['USDT', "BTC", "ETH", "EUR"]):
+    def GetTradeablePairs(self, quoteCurrencies:list=['USDT', "BTC", "ETH", "EUR"]):
+
+        '''Returns a list of all the tradeable pairs for a given quote asset'''
+
         url = self.base + self.endpoint['exchangeInfo']
         data= requests.get(url)
         data = json.loads(data.text)
@@ -28,7 +31,12 @@ class Binance():
 
         return pairs
 
-    def GetPairData(self, pair, interval):
+    def GetPairData(self, pair:str, interval:str="1h")
+
+        '''
+        Returns price data for a given pair on a given timeframe
+        '''
+
         url = self.base + self.endpoint['candlestick'] + "?&symbol=" + pair + "&interval=" + interval
 
         data = requests.get(url)
@@ -52,12 +60,3 @@ class Binance():
         df.name = pair
 
         return df
-
-def Main():
-    exchange = Binance()
-    symbols = exchange.getTradeablePairs()
-    print(symbols)
-    print(exchange.getPairData(pair = symbols[0], interval = '1m'))
-
-if __name__ == "__main__":
-    Main()
