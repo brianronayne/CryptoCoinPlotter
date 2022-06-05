@@ -1,6 +1,6 @@
 # CryptoCoinPlotter
 
-Simple command line program which currently can price coin data for any coin currently tradeable on the Binance cryptocurrency exchange. Open "Runner.py" file to get it to work.
+Simple command line program which currently can plot coin data for any coin currently tradeable on the Binance cryptocurrency exchange. Open "Runner.py" file to get it to work.
 
 ## Future Additions
 - Include ability to calculate various techinical indicators using price data and plot these. 
