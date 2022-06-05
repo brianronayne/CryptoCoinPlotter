@@ -1,4 +1,4 @@
-from Binance import Binance
+from Exchange import Binance
 from Plotter import Plotter
 from Indicators import Indicators
 import pandas as pd

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from ta import add_all_ta_features
 from ta.volatility import BollingerBands
-from Binance import Binance
+from Exchange import Binance
 
 class Indicators:
     '''Class to hold trading indicators that will be used'''
