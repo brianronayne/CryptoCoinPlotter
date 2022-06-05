@@ -1,5 +1,6 @@
 from Binance import Binance
 from Plotter import Plotter
+from Indicators import Indicators
 import pandas as pd
 import json
 import requests
@@ -41,8 +42,16 @@ def Main():
         print("The input provided was not recognised as an acceptable interval value. The program will now exit.")
         sys.exit(1)
 
-    coinData = Binance().GetPairData(pair = coin, interval = interval)
-    Plotter().PlotPairData(coinData)
+    coin_data = Binance().GetPairData(pair = coin, interval = interval)
+    
+
+    print("Choose which indicator you wish to use:")
+    print("1. None")
+    print("2. Bollinger Bands")
+    indicator = int(input())
+    if indicator == 2:
+        coin_data = Indicators().BBIndicator(df = coin_data)
+    Plotter().PlotPairData(coin_data)
 
 if __name__ == "__main__":
     Main()
