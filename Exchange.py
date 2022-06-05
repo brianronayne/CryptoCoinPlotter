@@ -15,7 +15,7 @@ class Binance():
             "candlestick": "/api/v3/klines"
         }
 
-    def GetTradeablePairs(self, quoteCurrencies:list=['USDT', "BTC", "ETH", "EUR"]):
+    def GetTradeablePairs(self, quote_currencies:list=['USDT', "BTC", "ETH", "EUR"]):
 
         '''Returns a list of all the tradeable pairs for a given quote asset'''
 
@@ -26,7 +26,7 @@ class Binance():
         pairs = []
 
         for pair in data['symbols']:
-            if pair['status'] == "TRADING" and pair['quoteAsset'] in quoteCurrencies:
+            if pair['status'] == "TRADING" and pair['quoteAsset'] in quote_currencies:
                 pairs.append(pair['symbol'])
 
         return pairs
@@ -60,3 +60,52 @@ class Binance():
         df.name = pair
 
         return df
+
+class Coinbase():
+
+    def __init__(self):
+        self.base = "https://api.exchange.coinbase.com"
+        self.endpoint = {
+            "exchange_info": "/products"
+        }
+
+    def GetTradeablePairs(self, quote_currencies:list=['USDT', "BTC", "ETH", "EUR"]):
+        url = self.base + self.endpoint['exchange_info']
+        
+        data= requests.get(url)
+        data = json.loads(data.text)
+
+        pairs = []
+
+        for coin in data:
+            if coin['trading_disabled'] == False and coin['quote_currency'] in quote_currencies:
+                pairs.append(coin['id'])
+
+        return pairs
+
+    def GetPairData(self, pair:str, interval:str="1h"):
+        url = self.base + self.endpoint['exchange_info'] + "/" + pair + "/candles"
+        
+        data= requests.get(url)
+        data = json.loads(data.text)
+
+        pairs = []
+
+        for coin in data:
+            if coin['trading_disabled'] == False and coin['quote_currency'] in quote_currencies:
+                pairs.append(coin['id'])
+
+
+        return pairs
+
+def Main():
+    exchange = Coinbase().GetTradeablePairs()
+    print(exchange)
+
+if __name__ == "__main__":
+    Main()
+
+
+
+
+

@@ -1,6 +1,6 @@
 import pandas as pd 
 import plotly.graph_objects as go 
-from Binance import Binance
+from Exchange import Binance
 import datetime
 
 class Plotter:
