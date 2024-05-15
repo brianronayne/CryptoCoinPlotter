@@ -50,6 +50,6 @@ class Plotter:
         fig.update_layout(title = df.name,xaxis_rangeslider_visible = False)
 
         # fig.write_image("graphs/" + df.name + "-"+str(datetime.datetime.now())+".jpeg")
-        fig.write_image("C:/Users/Brian Ronayne/Desktop/Programming/CryptoCoinPlotter/graphs/fig1.jpeg")
+        # fig.write_image("C:/Users/Brian Ronayne/Desktop/Programming/CryptoCoinPlotter/graphs/fig1.jpeg")
 
         fig.show()

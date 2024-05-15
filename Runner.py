@@ -43,8 +43,8 @@ def Main():
         sys.exit(1)
 
     coin_data = Binance().GetPairData(pair = coin, interval = interval)
+    print(coin_data)
     
-
     print("Choose which indicator you wish to use:")
     print("1. None")
     print("2. Bollinger Bands")
